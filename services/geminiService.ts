@@ -4,7 +4,8 @@ import { SYSTEM_INSTRUCTION } from "../constants";
 let chatSession: Chat | null = null;
 
 const getClient = () => {
-  const apiKey = process.env.API_KEY;
+  const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
+
   if (!apiKey) {
     console.warn("API_KEY is missing. Chat functionality will be disabled.");
     return null;
